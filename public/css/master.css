@@ -1,0 +1,11 @@
+html,
+body {
+	height: 100%;
+}
+
+#cover {
+    height: calc(100% - 56px); /* Hauteur de la page - 56px de la navbar */
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
