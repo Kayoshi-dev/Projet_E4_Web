@@ -2,12 +2,9 @@
 
 session_start();
 
-$status = $_SESSION['logged'];
+$status = $_SESSION['logged'] = null;
 
-if($status != null) {
-
-}
-
+echo $_SERVER['PHP_SELF'];
 ?>
 
 <!doctype html>
