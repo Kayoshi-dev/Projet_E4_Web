@@ -7,17 +7,19 @@ require_once 'public/template/header.php';
 <section id="cover"> 
     <div class="container"> 
         <div class="row"> 
-            <div class="col-lg"> 
+            <div class="offset-lg-4 col-lg-4 form-block"> 
                 <form action="index.php" method="post">
                     <div class="form-group"> 
                         <label for="login"> Login </label>  
-                        <input type="text" id="login" name="login" placeholder="Saisir login" class=""> 
+                        <input type="text" id="login" name="login" placeholder="Saisir login" class="form-control"> 
                     </div>
                     <div class="form-group">
-                        <label for="mdp"> Mot de passe </label> 
-                        <input type="password" id="password" name="password" placeholder="Saisir mot de passe" class="">
+                        <label for="password"> Mot de passe </label> 
+                        <input type="password" id="password" name="password" placeholder="Saisir mot de passe" class="form-control">
                     </div>
-                    <button type="button" class="btn btn-dark"> Valider </button>
+                        <div class="button">
+                            <button type="button" class="btn btn-dark"> Valider </button>
+                        </div>
                 </form>
 </section>
 
