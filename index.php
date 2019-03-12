@@ -21,6 +21,9 @@ require_once 'public/template/header.php';
                             <button type="button" class="btn btn-dark"> Valider </button>
                         </div>
                 </form>
+            </div>
+        </div>
+    </div>
 </section>
 
 <?php
