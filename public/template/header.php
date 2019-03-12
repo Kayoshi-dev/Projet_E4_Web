@@ -24,4 +24,5 @@ if($status != null) {
 
     <title>Accueil</title>
 </head>
-<body>  
+<body> 
+     
