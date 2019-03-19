@@ -1,9 +1,6 @@
 <?php
 
-session_start();
+require '../functions/destroyreturn.php';
 
-session_destroy();
-
-header('Location: ../../index.php');
-
-?>
+$Disconnect = new Functions();
+$Disconnect->DestroyReturn();

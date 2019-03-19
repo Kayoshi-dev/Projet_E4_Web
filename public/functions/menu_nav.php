@@ -12,24 +12,30 @@ function menu_nav ($script_name = null) {
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Validation des missions</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#">Paiement des frais</a>
-                 </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#">Paramétrage</a>
-                 </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="logoff.php">Déconnexion</a>
-                </li>
-            </ul>
-        </div>
-    </nav>';
+                </li>';
+            if($_SESSION['Responsable'] == 1) {
+                $menu.= '<li class="nav-item">
+                            <a class="nav-link" href="#">Validation des missions</a>
+                        </li>';
+            }
+            if($_SESSION['Responsable'] == 0) {
+                $menu.= '<li class="nav-item">
+                        <a class="nav-link" href="#">Paiement des frais</a>
+                     </li>';
+            }
+            
+        $menu.= '
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Paramétrage</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="logoff.php">Déconnexion</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>';
         echo $menu;
     }
 }
