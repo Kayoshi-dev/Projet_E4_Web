@@ -3,7 +3,7 @@
 session_start();
 
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=epoka', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=epoka_e4', 'root', '');
     $bdd->exec("SET NAMES 'UTF8'");
 } catch (PDOException $e) {
     $erreur = 'Erreur :' . $e->getMessage();

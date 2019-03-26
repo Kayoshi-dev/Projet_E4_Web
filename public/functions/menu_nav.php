@@ -26,7 +26,7 @@ function menu_nav ($script_name = null) {
             
         $menu.= '
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Paramétrage</a>
+                        <a class="nav-link" href="../pages/settings.php">Paramétrage</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">

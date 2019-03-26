@@ -1,6 +1,6 @@
 <?php
 
-require 'header.php';
+require '../template/header.php';
 require '../functions/menu_nav.php';
 
 $script_name = basename(__FILE__, '.php');
@@ -27,4 +27,4 @@ menu_nav($script_name);
 
 <?php
 
-require 'footer.php';
+require '../template/footer.php';
