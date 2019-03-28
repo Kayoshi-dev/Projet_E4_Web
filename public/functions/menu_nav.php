@@ -1,7 +1,11 @@
 <?php
 
-function menu_nav ($script_name = null) {
-    if($script_name != 'index') {
+/**
+ * @param null $script_name
+ */
+function menu_nav($script_name = null)
+{
+    if ($script_name != 'index') {
         $menu = '
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Epoka Mission</a>
@@ -13,19 +17,19 @@ function menu_nav ($script_name = null) {
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Accueil</a>
                 </li>';
-            if($_SESSION['Responsable'] == 1) {
-                $menu.= '<li class="nav-item">
-                            <a class="nav-link" href="#">Validation des missions</a>
+        if ($_SESSION['Responsable'] == 1) {
+            $menu .= '<li class="nav-item">
+                            <a class="nav-link" href="../pages/validMissions.php">Validation des missions</a>
                         </li>';
-            }
-            if($_SESSION['Responsable'] == 0) {
-                $menu.= '<li class="nav-item">
+        }
+        if ($_SESSION['Responsable'] == 0) {
+            $menu .= '<li class="nav-item">
                         <a class="nav-link" href="#">Paiement des frais</a>
                      </li>';
-            }
-            
-        $menu.= '
-                    <li class="nav-item">
+        }
+
+        $menu .= '
+                <li class="nav-item">
                         <a class="nav-link" href="../pages/settings.php">Paramétrage</a>
                     </li>
                 </ul>

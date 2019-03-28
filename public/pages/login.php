@@ -2,12 +2,8 @@
 
 session_start();
 
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=epoka_e4', 'root', '');
-    $bdd->exec("SET NAMES 'UTF8'");
-} catch (PDOException $e) {
-    $erreur = 'Erreur :' . $e->getMessage();
-}
+require '../functions/database.php';
+$bdd = ConnectDB();
 
 if(isset($_POST['login']) && isset($_POST['password'])) {
     $query = $bdd->prepare('SELECT Sal_Id, Sal_NoAgence, Sal_Nom, Sal_Prenom, Sal_Pwd, Sal_Resp, Sal_Compt

@@ -1,7 +1,5 @@
 <?php
-
 require_once 'public/template/header.php';
-
 ?>
 
 <section id="cover"> 

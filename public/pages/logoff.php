@@ -2,5 +2,4 @@
 
 require '../functions/destroyreturn.php';
 
-$Disconnect = new Functions();
-$Disconnect->DestroyReturn();
+DestroyReturn();
