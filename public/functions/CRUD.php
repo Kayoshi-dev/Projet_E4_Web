@@ -69,5 +69,6 @@ function selectData_Mission($bdd) {
 function updateMissions($bdd, $id) {
     $req = $bdd->prepare('UPDATE mission SET Miss_Valide = 1 WHERE Miss_Id = :id');
     $req->bindValue(':id', $id, PDO::PARAM_INT);
+    $req->execute();
 }
 

@@ -1,5 +1,9 @@
 <?php
 require_once 'public/template/header.php';
+
+if($_SESSION != null) {
+    header('Location: public/pages/home.php');
+}
 ?>
 
 <section id="cover"> 
