@@ -19,7 +19,7 @@ function menu_nav($script_name = null)
                 </li>';
         if ($_SESSION['Responsable'] == 1) {
             $menu .= '<li class="nav-item">
-                            <a class="nav-link" href="../pages/validMissions.php">Validation des missions</a>
+                            <a class="nav-link" href="../pages/showMissions.php">Validation des missions</a>
                         </li>';
         }
         if ($_SESSION['Responsable'] == 0) {

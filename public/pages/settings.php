@@ -17,13 +17,13 @@ $bdd = ConnectDB();
                 <div class="offset-lg-1 col-lg-5">
                     <label for="villedeb">Départ :</label>
                     <select class="custom-select" id="villedeb" name="villeDeb">
-                        <?php Options_Villes($bdd) ?>
+                        <?php selectOptions_Villes($bdd) ?>
                     </select>
                 </div>
                 <div class="col-lg-5">
                     <label for="villefin">Arrivée :</label>
                     <select class="custom-select" id="villefin" name="villeFin">
-                        <?php Options_Villes($bdd) ?>
+                        <?php selectOptions_Villes($bdd) ?>
                     </select>
                 </div>
             </div>

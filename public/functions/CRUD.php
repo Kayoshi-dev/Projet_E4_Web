@@ -3,10 +3,10 @@
 /**
  * @param $bdd
  */
-function Options_Villes($bdd)
+function selectOptions_Villes($bdd)
 {
     try {
-        $req = $bdd->query("SELECT * FROM ville");
+        $req = $bdd->query("SELECT * FROM ville ORDER BY Ville_Nom ASC");
         while ($res = $req->fetch()) {
             echo '<option value="' . $res['Ville_Id'] . '">' . $res['Ville_Nom'] . '</option>';
         }
@@ -53,5 +53,21 @@ function selectParam($bdd)
         $erreur = 'Erreur :' . $e->getMessage();
         return $erreur;
     }
+}
+
+function selectData_Mission($bdd) {
+    try {
+        $req = $bdd->query('SELECT * FROM mission');
+        return $req;
+    }
+    catch (PDOException $e) {
+        $erreur = 'Erreur :' . $e->getMessage();
+        return $erreur;
+    }
+}
+
+function updateMissions($bdd, $id) {
+    $req = $bdd->prepare('UPDATE mission SET Miss_Valide = 1 WHERE Miss_Id = :id');
+    $req->bindValue(':id', $id, PDO::PARAM_INT);
 }
 
