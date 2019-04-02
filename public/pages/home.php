@@ -25,6 +25,8 @@ menu_nav($script_name);
     </div>
 </div>
 
+    <img src="" alt="">
+
 <?php
 
 require '../template/footer.php';

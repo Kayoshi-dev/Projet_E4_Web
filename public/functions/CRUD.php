@@ -57,7 +57,11 @@ function selectParam($bdd)
 
 function selectData_Mission($bdd) {
     try {
-        $req = $bdd->query('SELECT * FROM mission');
+        $req = $bdd->query('SELECT * 
+                            FROM mission, salarie, ville 
+                            WHERE Sal_Id = Miss_NoSalarie 
+                            AND Ville_Id = Miss_NoVille 
+                            ORDER BY Miss_DateCreate DESC');
         return $req;
     }
     catch (PDOException $e) {

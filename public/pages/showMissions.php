@@ -4,7 +4,8 @@ require ('../template/header.php');
 require ('../functions/database.php');
 require ('../functions/menu_nav.php');
 require ('../functions/CRUD.php');
-require('../functions/checkMission.php');
+require ('../functions/checkMission.php');
+require ('../functions/checkMissionColor.php');
 
 $script_name = basename(__FILE__, '.php');
 menu_nav($script_name);
@@ -36,10 +37,10 @@ $bdd = ConnectDB();
                     //On vérifie si la mission est validée ou non.
                     $missAttente = checkMission($data); //On vérifie si la mission est validée ou non.
                     echo $infos ='
-                <tr>
+                <tr style="background-color:' . $background = checkColor($missAttente) .'">
                     <th scope="row">' . $data['Miss_Id'] . '</th>
-                    <td>' . $data['Miss_NoSalarie'] . '</td>
-                    <td>' . $data['Miss_NoVille'] . '</td>
+                    <td>' . $data['Sal_Nom'] . ' ' . $data['Sal_Prenom'] . '</td>
+                    <td>' . $data['Ville_Nom'] . '</td>
                     <td>' . $data['Miss_DateDebut'] . '</td>
                     <td>' . $data['Miss_DateFin'] . '</td>
                     <td>' . $missAttente . '</td>
