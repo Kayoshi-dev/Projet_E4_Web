@@ -5,7 +5,7 @@ session_start();
 require '../functions/database.php';
 $bdd = ConnectDB();
 
-if(isset($_POST['login']) && isset($_POST['password'])) {
+if(!empty($_POST['login']) && !empty($_POST['password'])) {
     $query = $bdd->prepare('SELECT Sal_Id, Sal_NoAgence, Sal_Nom, Sal_Prenom, Sal_Pwd, Sal_Resp, Sal_Compt
                                      FROM salarie 
                                      WHERE Sal_Id = :id');
@@ -13,13 +13,14 @@ if(isset($_POST['login']) && isset($_POST['password'])) {
     $query->execute();
     $data = $query->fetch();
     if ($data['Sal_Pwd'] == $_POST['password']) {
+        $_SESSION['User_ID'] = $data['Sal_Id'];
         $_SESSION['NumAgence'] = $data['Sal_NoAgence'];
         $_SESSION['Nom'] = $data['Sal_Nom'];
         $_SESSION['Prenom'] = $data['Sal_Prenom'];
         $_SESSION['Responsable'] = $data['Sal_Resp'];
         $_SESSION['Comptable'] = $data['Sal_Compt'];
         header('Location: home.php');
-    } else {
-        echo 'erreur';
     }
+} else {
+    header('Location: ../../index.php');
 }

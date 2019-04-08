@@ -16,7 +16,7 @@ $bdd = ConnectDB();
 
 <div class="container-fluid">
     <div class="row">
-        <div class="table-responsive">
+        <div class="table-responsive table-hover">
             <table class="table text-center">
                 <thead class="thead-dark">
                 <tr>
@@ -35,16 +35,17 @@ $bdd = ConnectDB();
                 $req = selectData_Mission($bdd); // Requête selectionnant toute les infos de la table mission.
                 while($data = $req->fetch()) {
                     //On vérifie si la mission est validée ou non.
-                    $missAttente = checkMission($data); //On vérifie si la mission est validée ou non.
+                    $missValide = checkAttente($data); //On vérifie si la mission est validée ou non.
+                    $missRembourse = checkRembourse($data); //On vérifie si la mission est remboursée ou non.
                     echo $infos ='
-                <tr style="background-color:' . $background = checkColor($missAttente) .'">
+                <tr style="background-color:' . $background = checkColor($missValide, $missRembourse) .'">
                     <th scope="row">' . $data['Miss_Id'] . '</th>
                     <td>' . $data['Sal_Nom'] . ' ' . $data['Sal_Prenom'] . '</td>
                     <td>' . $data['Ville_Nom'] . '</td>
                     <td>' . $data['Miss_DateDebut'] . '</td>
                     <td>' . $data['Miss_DateFin'] . '</td>
-                    <td>' . $missAttente . '</td>
-                    <td>' . $data['Miss_Paye'] . '</td>
+                    <td>' . $missValide . '</td>
+                    <td>' . $missRembourse . '</td>
                     <td>' . $data['Miss_DateCreate'] . '</td>
                 </tr>';
                 }
