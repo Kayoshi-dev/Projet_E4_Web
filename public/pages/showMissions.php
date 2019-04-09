@@ -28,6 +28,7 @@ $bdd = ConnectDB();
                     <th scope="col">Date fin</th>
                     <th scope="col">Validation</th>
                     <th scope="col">Payé</th>
+                    <th scope="col">Montant</th>
                     <th scope="col">Création de la mission</th>
                 </tr>
                 </thead>
@@ -38,6 +39,7 @@ $bdd = ConnectDB();
                     //On vérifie si la mission est validée ou non.
                     $missValide = checkAttente($data); //On vérifie si la mission est validée ou non.
                     $missRembourse = checkRembourse($data); //On vérifie si la mission est remboursée ou non.
+                    $montant = montantTotal($bdd, $data['Miss_Id']);
                     echo $infos ='
                 <tr style="background-color:' . $background = checkColor($missValide) .'">
                     <th scope="row">' . $data['Miss_Id'] . '</th>
@@ -47,8 +49,8 @@ $bdd = ConnectDB();
                     <td>' . $data['Miss_DateFin'] . '</td>
                     <td>' . $missValide . '</td>
                     <td>' . $missRembourse . '</td>
+                    <td>' . $montant[0] . ' €' . ' </td>
                     <td>' . $data['Miss_DateCreate'] . '</td>
-                    <td>' . Price($bdd, $data['Ville_Id']) . '</td>
                 </tr>';
                 }
                 ?>
