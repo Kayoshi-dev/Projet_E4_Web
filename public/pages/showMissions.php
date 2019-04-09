@@ -6,6 +6,7 @@ require ('../functions/menu_nav.php');
 require ('../functions/CRUD.php');
 require ('../functions/checkMission.php');
 require ('../functions/checkMissionColor.php');
+require ('../functions/calculPrice.php');
 
 $script_name = basename(__FILE__, '.php');
 menu_nav($script_name);
@@ -38,7 +39,7 @@ $bdd = ConnectDB();
                     $missValide = checkAttente($data); //On vérifie si la mission est validée ou non.
                     $missRembourse = checkRembourse($data); //On vérifie si la mission est remboursée ou non.
                     echo $infos ='
-                <tr style="background-color:' . $background = checkColor($missValide, $missRembourse) .'">
+                <tr style="background-color:' . $background = checkColor($missValide) .'">
                     <th scope="row">' . $data['Miss_Id'] . '</th>
                     <td>' . $data['Sal_Nom'] . ' ' . $data['Sal_Prenom'] . '</td>
                     <td>' . $data['Ville_Nom'] . '</td>
@@ -47,6 +48,7 @@ $bdd = ConnectDB();
                     <td>' . $missValide . '</td>
                     <td>' . $missRembourse . '</td>
                     <td>' . $data['Miss_DateCreate'] . '</td>
+                    <td>' . Price($bdd, $data['Ville_Id']) . '</td>
                 </tr>';
                 }
                 ?>
