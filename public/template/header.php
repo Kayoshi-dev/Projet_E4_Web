@@ -3,7 +3,6 @@
 session_start();
 
 ?>
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -18,5 +17,5 @@ session_start();
 
     <title>Accueil</title>
 </head>
-<body> 
+<body>
      
