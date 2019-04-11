@@ -1,17 +1,20 @@
 <?php
 
-function montantTotal($bdd, $idMis) {
+function montantTotal($bdd, $idMission) {
     try{
-        $stringreqMontant ='SELECT (((DATEDIFF(mis_dateFin, mis_DateDeb) + 1) * indemnite) + (ROUND(dist_km * remboursement, 2))) as PrixTotal 
-                            FROM mission, paiement, distance 
-                            WHERE dist_Villefin = mis_VilleId
-                            AND mis_id = :idMis';
-
-        $reqMontant = $bdd->prepare($stringreqMontant);
-        $reqMontant->bindParam(':idMis', $idMis, PDO::PARAM_INT);
-        $reqMontant->execute();
-
-        return $reqMontant->fetch();
+        $req = $bdd->prepare("SELECT (((DATEDIFF(Miss_DateFin, Miss_DateDebut) + 1) * Param_Hebergement) + (ROUND(Dist_Km * 2 * Param_IndemKm, 2))) as PrixTotal
+        FROM Mission, Parametrage, Distance WHERE Dist_NoVille2 = Miss_NoVille AND Miss_Id = :idMission");
+        $req->bindValue(':idMission', $idMission, PDO::PARAM_INT);
+        $req->execute();
+        $montant = $req->fetch();
+        if($montant[0] == '') {
+            $montant = '<a href="settings.php">Distance non définie</a>';
+            return $montant;
+        }
+        else {
+            $montant = $montant[0] . '€';
+            return $montant;
+        }
     }
     catch(Exception $e){
         die(print("Erreur : " . $e->getMessage()));

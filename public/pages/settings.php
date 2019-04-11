@@ -10,6 +10,10 @@ menu_nav($script_name);
 
 $bdd = ConnectDB();
 
+if($_SESSION['Responsable']) {
+    header('Location: showMissions.php');
+}
+
 ?>
     <div class="container-fluid">
         <form method="post" action="addParam.php">

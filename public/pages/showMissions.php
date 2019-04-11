@@ -37,9 +37,9 @@ $bdd = ConnectDB();
                 $req = selectData_Mission($bdd); // Requête selectionnant toute les infos de la table mission.
                 while($data = $req->fetch()) {
                     //On vérifie si la mission est validée ou non.
-                    $missValide = checkAttente($data); //On vérifie si la mission est validée ou non.
-                    $missRembourse = checkRembourse($data); //On vérifie si la mission est remboursée ou non.
-                    $montant = montantTotal($bdd, $data['Miss_Id']);
+                    $missValide = checkAttente($data); // On vérifie si la mission est validée ou non.
+                    $missRembourse = checkRembourse($data); // On vérifie si la mission est remboursée ou non.
+                    $montant = montantTotal($bdd, $data['Miss_Id']); //On calcule le montant total de la mission.
                     echo $infos ='
                 <tr style="background-color:' . $background = checkColor($missValide) .'">
                     <th scope="row">' . $data['Miss_Id'] . '</th>
@@ -49,7 +49,7 @@ $bdd = ConnectDB();
                     <td>' . $data['Miss_DateFin'] . '</td>
                     <td>' . $missValide . '</td>
                     <td>' . $missRembourse . '</td>
-                    <td>' . $montant[0] . ' €' . ' </td>
+                    <td>' . $montant . '</td>
                     <td>' . $data['Miss_DateCreate'] . '</td>
                 </tr>';
                 }
