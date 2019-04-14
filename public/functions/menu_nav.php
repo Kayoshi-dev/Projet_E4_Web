@@ -1,5 +1,8 @@
 <?php
 
+//Ce script génère le menu en fonction des rôles de l'utilisateur et de la page sur laquelle on se situe.
+//Par défaut $script_name est nul, si l'on se trouve sur la page index.php, le menu ne sera pas affiché.
+
 /**
  * @param null $script_name
  */
@@ -30,9 +33,7 @@ function menu_nav($script_name = null)
                         <a class="nav-link" href="../pages/settings.php">Paramétrage</a>
                     </li>';
         }
-
         $menu .= '
-
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">

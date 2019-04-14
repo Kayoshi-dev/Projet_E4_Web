@@ -4,6 +4,8 @@ require_once 'public/template/header.php';
 if($_SESSION != null) {
     header('Location: public/pages/home.php');
 }
+
+$title = 'Connexion';
 ?>
 
 <section id="cover"> 

@@ -1,5 +1,7 @@
 <?php
 
+$title = 'Listes des Missions 📝';
+
 require ('../template/header.php');
 require ('../functions/database.php');
 require ('../functions/menu_nav.php');
@@ -14,6 +16,10 @@ menu_nav($script_name);
 $bdd = ConnectDB();
 
 ?>
+
+<br>
+
+<h3>Interface de validation des missions</h3>
 
 <div class="container-fluid">
     <div class="row">

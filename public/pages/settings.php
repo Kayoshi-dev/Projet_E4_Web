@@ -1,5 +1,7 @@
 <?php
 
+$title = 'Paramétrage ⚙️';
+
 require '../template/header.php';
 require '../functions/menu_nav.php';
 require '../functions/database.php';
@@ -69,9 +71,3 @@ if($_SESSION['Responsable']) {
         ?>
         </tbody>
     </table>
-
-<?php
-
-require '../template/footer.php';
-
-?>

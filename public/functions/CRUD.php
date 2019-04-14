@@ -1,5 +1,7 @@
 <?php
 
+/* Ce fichier contient toute les scripts permettant de selectionner, modifier, ajouter des infos */
+
 /**
  * @param $bdd
  */
@@ -55,6 +57,10 @@ function selectParam($bdd)
     }
 }
 
+/**
+ * @param $bdd
+ * @return string
+ */
 function selectData_Mission($bdd) {
     try {
         $req = $bdd->query('SELECT * 
@@ -70,12 +76,20 @@ function selectData_Mission($bdd) {
     }
 }
 
+/**
+ * @param $bdd
+ * @param $id
+ */
 function updateValide($bdd, $id) {
     $req = $bdd->prepare('UPDATE mission SET Miss_Valide = 1 WHERE Miss_Id = :id');
     $req->bindValue(':id', $id, PDO::PARAM_INT);
     $req->execute();
 }
 
+/**
+ * @param $bdd
+ * @param $id
+ */
 function updateRembourse($bdd, $id) {
     $req = $bdd->prepare('UPDATE mission SET Miss_Paye = 1 WHERE Miss_Id = :id');
     $req->bindValue(':id', $id, PDO::PARAM_INT);

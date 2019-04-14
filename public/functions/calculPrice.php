@@ -1,5 +1,12 @@
 <?php
 
+/* Ce fichier contient la fonction permettant de calculer le cout d'une mission */
+
+/**
+ * @param $bdd
+ * @param $idMission
+ * @return string
+ */
 function montantTotal($bdd, $idMission) {
     try{
         $req = $bdd->prepare("SELECT (((DATEDIFF(Miss_DateFin, Miss_DateDebut) + 1) * Param_Hebergement) + (ROUND(Dist_Km * 2 * Param_IndemKm, 2))) as PrixTotal

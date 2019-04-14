@@ -1,5 +1,7 @@
 <?php
 
+//Simple script de connexion à la base de donnée, on retourne l'objet $db
+
 /**
  * @return PDO|string
  */
